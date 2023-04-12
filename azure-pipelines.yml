@@ -32,7 +32,14 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Visual Studio Enterprise(398203e5-596e-4058-95c9-f5ee030e54d4)'
+    azureSubscription: 'Visual Studio Enterprise with MSDN(dd7dd2b4-660d-40f2-8279-a9ca6dc135b8)'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Visual Studio Enterprise with MSDN(dd7dd2b4-660d-40f2-8279-a9ca6dc135b8)'
+    appType: 'webApp'
+    WebAppName: 
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     appType: 'webApp'
     WebAppName: 'test-app7858'
     packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'
