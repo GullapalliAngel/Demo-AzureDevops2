@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.csproj'
+  solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
@@ -21,7 +21,6 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -29,10 +28,15 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Visual Studio Enterprise(398203e5-596e-4058-95c9-f5ee030e54d4)'
+    azureSubscription: 'Visual Studio Enterprise(1)(398203e5-596e-4058-95c9-f5ee030e54d4)'
     appType: 'webApp'
     WebAppName: 'test-app7858'
     packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
