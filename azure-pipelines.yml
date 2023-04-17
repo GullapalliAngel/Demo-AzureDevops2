@@ -33,5 +33,5 @@ steps:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Visual Studio Enterprise with MSDN(dd7dd2b4-660d-40f2-8279-a9ca6dc135b8)'
     appType: 'webApp'
-    WebAppName: 'test-app7858'
+    WebAppName: 'demo-store-4'
     packageForLinux: '$(build.artifactStagingDirectory)\WebApp.zip'
